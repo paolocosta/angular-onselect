@@ -209,7 +209,7 @@
         var start = selection.range.startOffset;
         var startNode = selection.range.startContainer;
 
-        while (startNode.textContent.charAt(start) != ' ' && start > 0) {
+        while (isAlphanumeric(startNode.textContent.charAt(start)) && start > 0) {
           start--;
         }
         if (start != 0 && start != selection.range.startOffset) {
@@ -218,7 +218,7 @@
 
         var end = selection.range.endOffset;
         var endNode = selection.range.endContainer;
-        while (endNode.textContent.charAt(end) != ' ' && end < endNode.length) {
+        while (isAlphanumeric(endNode.textContent.charAt(end)) && end < endNode.length) {
           end++;
         }
 
@@ -226,6 +226,10 @@
         selection.range.setEnd(endNode, end);
 
         selection.text = selection.range.toString();
+      }
+
+      function isAlphanumeric(text){
+            return text.search(/^[a-z0-9]+$/i) >= 0;
       }
 
       /**
