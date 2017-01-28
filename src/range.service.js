@@ -144,7 +144,7 @@
       }
 
       function isAlphanumeric(text){
-            return text.search(/^[\s«.,;:'´"\!\?\-\(\)\]\[]$/i) == -1;
+            return text.search(/^[\s«»\.,;:'´\"\!\?\-\(\)\]\[]$/i) == -1;
       }
 
       /**
